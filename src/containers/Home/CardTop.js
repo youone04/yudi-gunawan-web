@@ -1,7 +1,38 @@
-import React from 'react';
+import React ,{useEffect , useState}from 'react';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-const CardTop = () => {
+import { connect } from 'react-redux';
+var gambar = [];
+var header = [];
+const CardTop = ({landingPageUtama}) => {
+    const [loading , setLoading] = useState(false)
+    useEffect(() => {
+        landingPageUtama?
+        getContent(landingPageUtama):
+        getContent([])
+    },[landingPageUtama]);
+
+    const getContent = async(data) => {
+        var path = '';
+        for (var i = 0; i < data.length; i++) {
+            data
+              ? (path = JSON.stringify(data[i]).replace(/[^\w\s]/gi, ''))
+              : (path = '')
+            if (path === 'gambar') {
+              setLoading(true)
+              for (var a = 0; a < i; a++) {
+                gambar.push(data[a])
+              }
+            } else if (path === 'hader') {
+              for (var b = gambar.length + 1; b < i; b++) {
+                header.push(data[b])
+              }
+            }
+          }
+    }
+    if(!loading){
+        return <span>dev</span>
+    }
     return(
         <section class="p-0 bg-primary text-white row no-gutters">
         <div class="col-lg-12 col-xl-12">
@@ -53,12 +84,15 @@ const CardTop = () => {
             slidesToSlide={1}
             swipeable
             >
-            <div>
-            <img src="assets/assets/img/blog/large-2.jpg" alt="Image" class="w-100 h-100"/>
-            </div>
-           <div>
-           <img src="https://placeimg.com/700/428/tech" alt="Image" class="w-100 h-100"/>
-           </div>
+           {
+               gambar.map((data , key) =>{
+               return(
+                <div key={key}>
+                <img src={data} alt="Image" class="w-100 h-100"/>
+                </div>
+               )
+               })
+            }
            </Carousel>
            
         </div>
@@ -67,9 +101,11 @@ const CardTop = () => {
             <div class="container">
                 <div class="row justify-content-center">
                 <div class="col col-md-12 col-xl-12">
-                    <h3 class="h1">&ldquo;Hallo... Selamat datang di website gudangnya aplikasi androis&rdquo;</h3>
+                    <h3 class="h1">&ldquo;{header[0]}&rdquo;</h3>
                     <p class="lead">
-                    Non pulvinar neque laoreet suspendisse interdum Catelyn libero id. Olenna imp leo in vitae turpis massa. Sapien habitant Tyrion.
+                    {
+                        header[1]
+                    }
                     </p>
                     <img class="bg-white opacity-50 mt-3 mt-md-4 mb-3" src="assets/assets/img/logos/brand/aven.svg" alt="Aven company logo" data-inject-svg/>
                 </div>
@@ -79,5 +115,12 @@ const CardTop = () => {
         </div>
         </section>
     )
+    
 }
-export default CardTop;
+const mapStateToProps = (state) => {
+    return{
+        landingPageUtama: state.landingPageUtama
+    }
+}
+
+export default connect(mapStateToProps ,null)(CardTop);
