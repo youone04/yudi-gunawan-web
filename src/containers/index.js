@@ -1,4 +1,5 @@
 import Detail from './Detail';
 import Home from './Home';
+import SeeAll from './SeeAll';
 
-export {Detail , Home};
+export { Home ,Detail , SeeAll};

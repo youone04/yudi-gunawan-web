@@ -2,6 +2,8 @@ import React,{useEffect,useState} from 'react';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
+
 var header = [];
 var content = [];
 const AppsTerbaru = ({dataNewApps}) => {
@@ -44,6 +46,10 @@ const AppsTerbaru = ({dataNewApps}) => {
             </div>
             </div>
             <div class="row">
+            <p style={{marginLeft:'auto',marginRight: '5%'}}>
+                <Link style={{color:'#dc6c3c'}} to='/see-all' >See All</Link>
+                {/* <a href="/see-all">See All</a> */}
+            </p>
             <div class="col-md-12 col-lg-12 mb-3 mb-md-4 mb-lg-0">
             <Carousel
             additionalTransfrom={0}
