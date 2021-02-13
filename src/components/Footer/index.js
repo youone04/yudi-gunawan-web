@@ -56,22 +56,22 @@ const Footer = () => {
                     <ul class="list-unstyled d-flex flex-wrap">
                     <li class="col-12 col-lg-12 col-xl-12 px-0">
                         <div class="row my-2 my-md-3">
-                        <a class="col-5" href="#">
+                        <a class="col-5" href="/">
                             <img class="rounded img-fluid hover-fade-out" src="assets/assets/img/blog/thumb-2.jpg" alt="blog.1.image"/>
                         </a>
                         <div class="col">
-                            <a class="h6" href="#">Unveiling our new vision for Jumpstart</a>
+                            <a class="h6" href="/">Unveiling our new vision for Jumpstart</a>
                             <div class="text-small text-muted mt-2">October 10th</div>
                         </div>
                         </div>
                     </li>
                     <li class="col-12 col-lg-12 col-xl-12 px-0">
                         <div class="row my-2 my-md-3">
-                        <a class="col-5" href="#">
+                        <a class="col-5" href="/">
                             <img class="rounded img-fluid hover-fade-out" src="assets/assets/img/blog/thumb-1.jpg" alt="blog.2.image"/>
                         </a>
                         <div class="col">
-                            <a class="h6" href="#">Making the most of team-building sessions</a>
+                            <a class="h6" href="/">Making the most of team-building sessions</a>
                             <div class="text-small text-muted mt-2">October 2nd</div>
                         </div>
                         </div>
@@ -83,18 +83,18 @@ const Footer = () => {
                     <h5>Newsletter</h5>
                     <div class="card card-body bg-white">
                     <p>Get a bi-weekly digest of great articles</p>
-                    <form data-form-email novalidate action="/forms/mailchimp.php">
+                    <form data-form-email noValidate action="/forms/mailchimp.php">
                         <div class="d-flex flex-column flex-sm-row form-group">
                         <input class="form-control mr-sm-2 mb-2 mb-sm-0 w-auto flex-grow-1" name="email" placeholder="Email Address" type="email" required/>
                         <button type="submit" class="btn btn-primary btn-loading" data-loading-text="Sending">
-                            <svg class="icon bg-white" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" XmlnsXlink="http://www.w3.org/1999/xlink">
+                            <svg class="icon bg-white" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                             <title>Icon For Loading</title>
-                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                                 <g>
                                 <polygon points="0 0 24 0 24 24 0 24" opacity="0"></polygon>
                                 </g>
                                 <path d="M12,4 L12,6 C8.6862915,6 6,8.6862915 6,12 C6,15.3137085 8.6862915,18 12,18 C15.3137085,18 18,15.3137085 18,12 C18,10.9603196 17.7360885,9.96126435 17.2402578,9.07513926 L18.9856052,8.09853149 C19.6473536,9.28117708 20,10.6161442 20,12 C20,16.418278 16.418278,20 12,20 C7.581722,20 4,16.418278 4,12 C4,7.581722 7.581722,4 12,4 Z"
-                                fill="#000000" fill-rule="nonzero" transform="translate(12.000000, 12.000000) scale(-1, 1) translate(-12.000000, -12.000000) "></path>
+                                fill="#000000" fillRule="nonzero" transform="translate(12.000000, 12.000000) scale(-1, 1) translate(-12.000000, -12.000000) "></path>
                             </g>
                             </svg>
                             <span>Go</span>
@@ -128,27 +128,27 @@ const Footer = () => {
                 <div class="col-auto mt-3 mt-lg-0">
                     <ul class="list-unstyled d-flex mb-0">
                     <li class="mx-3">
-                        <a href="#" class="hover-fade-out">
+                        <a href="/" class="hover-fade-out">
                         <img src="assets/img/icons/social/dribbble.svg" alt="Dribbble" class="icon icon-xs bg-white" data-inject-svg/>
                         </a>
                     </li>
                     <li class="mx-3">
-                        <a href="#" class="hover-fade-out">
+                        <a href="/" class="hover-fade-out">
                         <img src="assets/img/icons/social/twitter.svg" alt="Twitter" class="icon icon-xs bg-white" data-inject-svg/>
                         </a>
                     </li>
                     <li class="mx-3">
-                        <a href="#" class="hover-fade-out">
+                        <a href="/" class="hover-fade-out">
                         <img src="assets/img/icons/social/github.svg" alt="Github" class="icon icon-xs bg-white" data-inject-svg/>
                         </a>
                     </li>
                     <li class="mx-3">
-                        <a href="#" class="hover-fade-out">
+                        <a href="/" class="hover-fade-out">
                         <img src="assets/img/icons/social/facebook.svg" alt="Facebook" class="icon icon-xs bg-white" data-inject-svg/>
                         </a>
                     </li>
                     <li class="mx-3">
-                        <a href="#" class="hover-fade-out">
+                        <a href="/" class="hover-fade-out">
                         <img src="assets/img/icons/social/google.svg" alt="Google" class="icon icon-xs bg-white" data-inject-svg/>
                         </a>
                     </li>

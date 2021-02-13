@@ -1,5 +1,6 @@
 let initisalState = {
-    landingPageUtama  : {}
+    landingPageUtama  : {},
+    dataNewApps: {}
 }
 
 export const dataSheets = (state = initisalState , action) => {
@@ -8,6 +9,12 @@ export const dataSheets = (state = initisalState , action) => {
             return{
                 ...state,
                 landingPageUtama: action.value
+            }
+        case 'GET_DATA_NEW_APPS':
+            return{
+                ...state,
+                dataNewApps: action.value
+
             }
         default : return state;
     }

@@ -9,6 +9,7 @@ export class Home extends Component {
     constructor(props){
         super(props);
         props.getDataLandingPageUtama()
+        props.getDataNewApps()
     }
 
     render() {
@@ -16,7 +17,7 @@ export class Home extends Component {
             <>
             <CardTop/>
             <AppsTerbaru/>
-            {/* <Footer/> */}
+            <Footer/>
             <MenuFooter/>
             </>
         )
@@ -25,6 +26,7 @@ export class Home extends Component {
 const mapDispatchToProps = (dispatch) => {
     return{
         getDataLandingPageUtama: () => dispatch(dataSheetsAction.getDataLandingPageUtama()),
+        getDataNewApps: () => dispatch(dataSheetsAction.getDataNewApps())
     }
 }
 

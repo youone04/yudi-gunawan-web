@@ -1,14 +1,46 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-const AppsTerbaru = () => {
+import {connect} from 'react-redux';
+var header = [];
+var content = [];
+const AppsTerbaru = ({dataNewApps}) => {
+    const [loading , setLoading] = useState(false);
+    useEffect(() => {
+        dataNewApps?
+        getContent(dataNewApps):
+        getContent([])
+    },[dataNewApps]);
+
+    const getContent = (data) => {
+        var path = '';
+        for (var i = 0; i < data.length; i++) {
+            data
+              ? (path = JSON.stringify(data[i]).replace(/[^\w\s]/gi, ''))
+              : (path = '')
+            if (path === 'header') {
+              setLoading(true)
+              for (var a = 0; a < i; a++) {
+                header.push(data[a])
+              }
+            } else if (path === 'content') {
+              for (var b = header.length + 1; b < i; b++) {
+                content.push(data[b])
+              }
+            }
+          }
+    }
+
+    if(!loading){
+        return <span>dev</span>
+    }
     return(
         <section>
         <div class="container">
             <div class="row section-title justify-content-center text-center">
             <div class="col-md-12 col-lg-12 col-xl-12">
-                <h3 class="display-4"><mark data-aos="highlight-text" data-aos-delay="300">Aplikasi Terbaru</mark> </h3>
-                <div class="lead">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.</div>
+                <h3 class="display-4"><mark data-aos="highlight-text" data-aos-delay="300">{header[0]}</mark> </h3>
+                <div class="lead">{header[1]}</div>
             </div>
             </div>
             <div class="row">
@@ -61,37 +93,29 @@ const AppsTerbaru = () => {
             slidesToSlide={1}
             swipeable
             >
-             <div class="card h-100 hover-box-shadow">
-                <div class="d-block bg-gradient rounded-top position-relative">
-                    <img class="card-img-top hover-fade-out" src="assets/assets/img/case-studies/thumb-2.jpg" alt="Image accompanying Circle testimonial"/>
-                    <div class="badge badge-light">
-                    <img src="assets/assets/img/logos/brand/asgardia.svg" alt="Asgardia company logo" class="icon icon-sm m-lg-1"/>
+            {
+               content.filter((data ,key) => ( key <= 1))
+               .map((res , key) => {
+                   return(
+                    <div key={key} class="card h-100 hover-box-shadow">
+                        <div class="d-block bg-gradient rounded-top position-relative">
+                            <img class="card-img-top hover-fade-out" src={res[0]} alt="Image accompanying Circle testimonial"/>
+                            <div class="badge badge-light">
+                            <img src={[res[1]]} alt="Asgardia company logo" class="icon icon-sm m-lg-1"/>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>{res[2]}</h3>
+                            <p>
+                            {res[3]}
+                            </p>
+                            <a href={res[4]} class="stretched-link">{res[5]}</a>
+                        </div>
                     </div>
-                </div>
-                <div class="card-body">
-                    <h3>NotesApps</h3>
-                    <p>
-                    Samwell nisl purus in mollis. Varys eget velit aliquet sagittis consectetur purus ut.
-                    </p>
-                    <a href="#" class="stretched-link">Download</a>
-                </div>
-                </div>
-
-                <div class="card h-100 hover-box-shadow">
-                <div class="d-block bg-gradient rounded-top position-relative">
-                    <img class="card-img-top hover-fade-out" src="assets/assets/img/case-studies/thumb-2.jpg" alt="Image accompanying Circle testimonial"/>
-                    <div class="badge badge-light">
-                    <img src="assets/assets/img/logos/brand/asgardia.svg" alt="Asgardia company logo" class="icon icon-sm m-lg-1"/>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h3>CatatanKeuangan</h3>
-                    <p>
-                    Samwell nisl purus in mollis. Varys eget velit aliquet sagittis consectetur purus ut.
-                    </p>
-                    <a href="#" class="stretched-link">Download</a>
-                </div>
-                </div>
+                   )
+               })
+            }
+             
             </Carousel>
             </div>
             </div>
@@ -99,4 +123,9 @@ const AppsTerbaru = () => {
         </section>
     )
 }
-export default AppsTerbaru;
+const mapStateToProps = (state) => {
+    return{
+        dataNewApps: state.dataNewApps
+    }
+}
+export default connect(mapStateToProps , null) (AppsTerbaru);

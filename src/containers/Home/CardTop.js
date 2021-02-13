@@ -34,12 +34,12 @@ const CardTop = ({landingPageUtama}) => {
         return <span>dev</span>
     }
     return(
-        <section class="p-0 bg-primary text-white row no-gutters">
+        <section style={{backgroundColor:'#4b054a',borderTopLeftRadius: 10,borderTopRightRadius: 10}} class="p-0 text-white row no-gutters mt-1">
         <div class="col-lg-12 col-xl-12">
         <Carousel
             additionalTransfrom={0}
             arrows
-            autoPlay
+            // autoPlay
             autoPlaySpeed={4000}
             centerMode={false}
             className=""
@@ -88,7 +88,7 @@ const CardTop = ({landingPageUtama}) => {
                gambar.map((data , key) =>{
                return(
                 <div key={key}>
-                <img src={data} alt="Image" class="w-100 h-100"/>
+                <img style={{borderTopLeftRadius: 10,borderTopRightRadius: 10}} src={data} alt="Image" class="w-100 h-100"/>
                 </div>
                )
                })

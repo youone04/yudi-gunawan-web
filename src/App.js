@@ -9,8 +9,8 @@ function App() {
     <Provider store={store}>
     <Router>
     <div>
-        <Route path='/detail' exact component={Detail} />
-        <Route path="/" component={Home} />
+        <Route path='/' exact component={Home} />
+        <Route path="/detail" component={Detail} />
     </div>
   </Router>
   </Provider>
