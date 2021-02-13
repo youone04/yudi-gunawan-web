@@ -19,9 +19,9 @@
     height: 37px;
     opacity: 0.5;
 }
-.icon-home{
-    margin: 3px;
-    color: #480048;
+.icon-custome{
+    margin: 20px;
+    /* color: #480048; */
 }
 .navbar-custome {
     overflow: hidden;

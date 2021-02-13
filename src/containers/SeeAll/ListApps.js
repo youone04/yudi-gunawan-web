@@ -6,30 +6,30 @@ import {connect} from 'react-redux';
 
 var headerSeeAll = [];
 var contentSeeAll = [];
-const ListApps = ({dataNewApps}) => {
+const ListApps = ({dataNewAppsAll}) => {
     const [loading , setLoading] = useState(false);
     const [searchInput , setSearchInput] = useState('')
 
     useEffect(() => {
-        dataNewApps?
-        getContentAll(dataNewApps):
+        dataNewAppsAll?
+        getContentAll(dataNewAppsAll):
         getContentAll([])
-    },[dataNewApps]);
+    },[dataNewAppsAll]);
 
-    const getContentAll = (data) => {
+    const getContentAll = (dataAll) => {
         var pathAll = '';
-        for (var i = 0; i < data.length; i++) {
-            data
-              ? (pathAll = JSON.stringify(data[i]).replace(/[^\w\s]/gi, ''))
+        for (let x = 0; x < dataAll.length; x++) {
+            dataAll
+              ? (pathAll = JSON.stringify(dataAll[x]).replace(/[^\w\s]/gi, ''))
               : (pathAll = '')
             if (pathAll === 'header') {
               setLoading(true)
-              for (var a = 0; a < i; a++) {
-                headerSeeAll.push(data[a])
+              for (let y = 0; y < x; y++) {
+                headerSeeAll.push(dataAll[y])
               }
             } else if (pathAll === 'content') {
-              for (var b = headerSeeAll.length + 1; b < i; b++) {
-                contentSeeAll.push(data[b])
+              for (let z = headerSeeAll.length + 1; z < x; z++) {
+                contentSeeAll.push(dataAll[z])
               }
             }
           }
@@ -78,7 +78,7 @@ const ListApps = ({dataNewApps}) => {
 }
 const mapStateToProps = (state) => {
     return{
-        dataNewApps: state.dataNewApps
+        dataNewAppsAll: state.dataNewApps
     }
 }
 export default connect(mapStateToProps , null) (ListApps);

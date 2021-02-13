@@ -4,6 +4,7 @@ import "react-multi-carousel/lib/styles.css";
 import { connect } from 'react-redux';
 var gambar = [];
 var header = [];
+
 const CardTop = ({landingPageUtama}) => {
     const [loading , setLoading] = useState(false)
     useEffect(() => {
