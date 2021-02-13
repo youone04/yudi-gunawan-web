@@ -1,12 +1,28 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import MenuFooter from '../../components/MenuFooter';
-const SeeAll = () => {
+import CardTop from './CardTop';
+import * as dataSheetsAction from '../../config/redux/action';
+import { connect } from 'react-redux';
+import ListApps from './ListApps';
+const SeeAll = ({getDataNewApps}) => {
+    useEffect(() => {
+        getDataNewApps()
+
+    },[getDataNewApps]);
+
     return(
         <>
-            <p>See All</p>
+            <CardTop/>
+            <ListApps/>
             <MenuFooter/>
         </>
     )
 }
 
-export default SeeAll;
+const mapDispatchToProps =  (dispatch) => {
+        return{
+            getDataNewApps: () => dispatch(dataSheetsAction.getDataNewApps())
+        }
+}
+
+export default connect(null , mapDispatchToProps)(SeeAll);
