@@ -7,7 +7,7 @@ import store from './config/redux/store/index';
 function App() {
   return (
     <Provider store={store}>
-    <Router>
+    <Router >
     <div>
         <Route path='/' exact component={Home} />
         <Route path='/detail' component={Detail} />

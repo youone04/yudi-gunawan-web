@@ -4,32 +4,32 @@ import React,{useEffect,useState} from 'react';
 import {connect} from 'react-redux';
 // import {Link} from 'react-router-dom';
 
-var header = [];
-var content = [];
+var headerSeeAll = [];
+var contentSeeAll = [];
 const ListApps = ({dataNewApps}) => {
     const [loading , setLoading] = useState(false);
     const [searchInput , setSearchInput] = useState('')
 
     useEffect(() => {
         dataNewApps?
-        getContent(dataNewApps):
-        getContent([])
+        getContentAll(dataNewApps):
+        getContentAll([])
     },[dataNewApps]);
 
-    const getContent = (data) => {
-        var path = '';
+    const getContentAll = (data) => {
+        var pathAll = '';
         for (var i = 0; i < data.length; i++) {
             data
-              ? (path = JSON.stringify(data[i]).replace(/[^\w\s]/gi, ''))
-              : (path = '')
-            if (path === 'header') {
+              ? (pathAll = JSON.stringify(data[i]).replace(/[^\w\s]/gi, ''))
+              : (pathAll = '')
+            if (pathAll === 'header') {
               setLoading(true)
               for (var a = 0; a < i; a++) {
-                header.push(data[a])
+                headerSeeAll.push(data[a])
               }
-            } else if (path === 'content') {
-              for (var b = header.length + 1; b < i; b++) {
-                content.push(data[b])
+            } else if (pathAll === 'content') {
+              for (var b = headerSeeAll.length + 1; b < i; b++) {
+                contentSeeAll.push(data[b])
               }
             }
           }
@@ -46,7 +46,10 @@ const ListApps = ({dataNewApps}) => {
             <div class="col-md-12 col-lg-12 mb-3 mb-md-4 mb-lg-0">
            
             {
-               content.filter((data ,key) => ( data[2].toLowerCase().includes(searchInput.toLowerCase()) ||data[3].toLowerCase().includes(searchInput.toLowerCase()) ))
+               contentSeeAll.filter((data ,key) => ( 
+                   searchInput?
+                   `${data[2]}`.toLowerCase().includes(`${searchInput}`.toLowerCase()):[]
+                 ))
                .map((res , key) => {
                    return(
                     <div key={key} class="card hover-box-shadow mb-lg-3">

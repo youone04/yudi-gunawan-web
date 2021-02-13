@@ -30,6 +30,7 @@
     bottom: 0;
     width: 480px;
     z-index: 1000;
+    border-top: solid black;
   }
   .text{
       margin-left: 20px;

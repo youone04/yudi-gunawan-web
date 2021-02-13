@@ -4,16 +4,20 @@ import CardTop from './CardTop';
 import * as dataSheetsAction from '../../config/redux/action';
 import { connect } from 'react-redux';
 import ListApps from './ListApps';
-const SeeAll = ({getDataNewApps}) => {
+import { Footer } from '../../components';
+const SeeAll = ({getDataNewApps , getDataSeeAll}) => {
     useEffect(() => {
         getDataNewApps()
+        getDataSeeAll()
+       
 
-    },[getDataNewApps]);
+    },[getDataNewApps , getDataSeeAll]);
 
     return(
         <>
             <CardTop/>
             <ListApps/>
+            <Footer/>
             <MenuFooter/>
         </>
     )
@@ -21,7 +25,8 @@ const SeeAll = ({getDataNewApps}) => {
 
 const mapDispatchToProps =  (dispatch) => {
         return{
-            getDataNewApps: () => dispatch(dataSheetsAction.getDataNewApps())
+            getDataNewApps: () => dispatch(dataSheetsAction.getDataNewApps()),
+            getDataSeeAll: () => dispatch(dataSheetsAction.getDataSeeAll())
         }
 }
 

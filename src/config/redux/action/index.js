@@ -27,3 +27,16 @@ export const getDataNewApps = () => (dispatch) => {
         })
     })
 }
+
+export const getDataSeeAll = () => (dispatch) => {
+    return new Promise((solve , reject) => {
+        axios.get(`https://sheets.googleapis.com/v4/spreadsheets/${process.env.REACT_APP_API_KEY_SHEET}/values/page_see_all!A1:Z100?key=${process.env.REACT_APP_API_KEY}`)
+        .then(res => {
+            dispatch({type: 'GET_DATA_SEE_ALL' , value: res.data.values});
+            solve(res)
+        })
+        .catch(e => {
+            console.log(e)
+        })
+    })
+}
