@@ -1,7 +1,8 @@
 let initisalState = {
     landingPageUtama  : {},
     dataNewApps: {},
-    dataSeeAll: {}
+    dataSeeAll: {},
+    placeHolderLoading: false
 }
 
 export const dataSheets = (state = initisalState , action) => {
@@ -21,6 +22,11 @@ export const dataSheets = (state = initisalState , action) => {
             return{
                 ...state,
                 dataSeeAll: action.value
+            }
+        case 'PLACE_HOLDER_LOADING':
+            return{
+                ...state,
+                placeHolderLoading: action.value
             }
         default : return state;
     }

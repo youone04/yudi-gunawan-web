@@ -2,6 +2,8 @@ import React ,{useEffect , useState}from 'react';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { connect } from 'react-redux';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 var gambar = [];
 var header = [];
 
@@ -32,7 +34,7 @@ const CardTop = ({landingPageUtama}) => {
           }
     }
     if(!loading){
-        return <span>dev</span>
+        return <span>-</span>
     }
     return(
         <section style={{backgroundColor:'#4b054a',borderTopLeftRadius: 10,borderTopRightRadius: 10}} class="p-0 text-white row no-gutters mt-1">
@@ -89,7 +91,13 @@ const CardTop = ({landingPageUtama}) => {
                gambar.map((data , key) =>{
                return(
                 <div key={key}>
-                <img style={{borderTopLeftRadius: 10,borderTopRightRadius: 10}} src={data} alt="Image" class="w-100 h-100"/>
+                    <LazyLoadImage
+                    style={{borderTopLeftRadius: 10,borderTopRightRadius: 10}} 
+                    class="w-100 h-100"
+                    alt={'gambar'}
+                    effect="blur"
+                    src={data} />
+                    {/* <img style={{borderTopLeftRadius: 10,borderTopRightRadius: 10}} src={data} alt="Image" class="w-100 h-100"/> */}
                 </div>
                )
                })

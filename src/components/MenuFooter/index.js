@@ -12,12 +12,15 @@ export class MenuFooter extends Component {
         }else if(page === 'kontak'){
             colorHome = '#807070';
             colorContak = '#480048';
+        }else if(page === 'seeAll'){
+            colorContak = '#807070';
+            colorHome = '#807070';
         }
         return (
             <>
-            <div className="navbar-custome">
-               <Link style={{color: colorHome}} to="/"><i className="fas icon-custome fa-home fa-2x"> </i></Link>
-               <Link style={{color: colorContak}} to="/kontak"><i class="far icon-custome fa-address-book fa-2x" ></i></Link>
+            <div style={{display:'flex'}} className="navbar-custome">
+               <Link style={{color: colorHome}} to="/"><i className="fas icon-custome fa-home fa-2x"></i><p class="text-menu-icon">HOME</p></Link>
+               <Link style={{color: colorContak}} to="/kontak"><i class="far icon-custome fa-address-book fa-2x" ><p style={{fontSize: 10,marginTop: 5,marginLeft: -8}}>KONTAK</p></i></Link>
             </div>
             </>
         )

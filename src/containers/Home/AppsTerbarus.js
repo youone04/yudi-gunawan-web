@@ -2,7 +2,8 @@ import React,{useEffect,useState} from 'react';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 var header = [];
 var content = [];
@@ -34,7 +35,7 @@ const AppsTerbaru = ({dataNewApps}) => {
     }
 
     if(!loading){
-        return <span>dev</span>
+        return <span>-</span>
     }
     return(
         <section>
@@ -105,10 +106,16 @@ const AppsTerbaru = ({dataNewApps}) => {
                    return(
                     <div key={key} class="card h-100 hover-box-shadow">
                         <div class="d-block bg-gradient rounded-top position-relative">
-                            <img class="card-img-top hover-fade-out" src={res[0]} alt="Image accompanying Circle testimonial"/>
-                            <div class="badge badge-light">
+                            {/* <img class="card-img-top hover-fade-out" src={res[0]} alt="Image accompanying Circle testimonial"/> */}
+                            <LazyLoadImage
+                                class="card-img-top hover-fade-out"
+                                alt={'gambar'}
+                                effect="blur"
+                                src={res[0]} />
+                            
+                            {/* <div class="badge badge-light">
                             <img src={[res[1]]} alt="Asgardia company logo" class="icon icon-sm m-lg-1"/>
-                            </div>
+                            </div> */}
                         </div>
                         <div class="card-body">
                             <h3>{res[2]}</h3>
