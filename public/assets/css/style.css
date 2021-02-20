@@ -157,3 +157,18 @@
         background-position: 650px 0;
    }
 }
+.sheet-home [data-rsbs-overlay]{
+    margin-left: auto !important;
+    margin-right: auto !important;
+    background-color: white !important;
+    max-width: 480px !important;
+    margin: 0 auto !important;
+    bottom: 0 !important;
+    background-color: green !important;
+    /* padding: 0px 16px 80px; */
+}
+.sheet-home [data-rsbs-backdrop]{
+    background-color: wheat !important;
+    z-index: -10 !important;
+    display: none !important;
+}

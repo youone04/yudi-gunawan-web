@@ -2,6 +2,8 @@ import axios from 'axios';
 export const getDataLandingPageUtama = () => (dispatch) => {
     dispatch({type: 'PLACE_HOLDER_LOADING' , value: true})
     return new Promise((solve ,reject) => {
+      try {
+
         axios.get(`https://sheets.googleapis.com/v4/spreadsheets/${process.env.REACT_APP_API_KEY_SHEET}/values/card_top_landing_page_utama!A1:Z100?key=${process.env.REACT_APP_API_KEY}`)
         .then(res => {
            dispatch({type:'GET_LANDINPAGE_UTAMA' , value: res.data.values})
@@ -9,9 +11,15 @@ export const getDataLandingPageUtama = () => (dispatch) => {
            solve(res);
         })
         .catch((err) => {
-            console.log(err);
+            // console.log('error then =>', err);
+            if(err){
+                alert('coneksi eroor')
+            }
         })
         
+      } catch (error) {
+          console.log('error  =>', error)
+      }
 
     })
 
