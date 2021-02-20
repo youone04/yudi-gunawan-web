@@ -38,7 +38,7 @@
     bottom: 0;
     max-width: 480px;
     width: 100%;
-    z-index: 1000;
+    z-index: 100;
     border-top: solid black;
   }
 
@@ -158,17 +158,26 @@
    }
 }
 .sheet-home [data-rsbs-overlay]{
+    z-index: 1001 !important
+    ;
     margin-left: auto !important;
     margin-right: auto !important;
-    background-color: white !important;
+    /* background-color: white !important; */
     max-width: 480px !important;
     margin: 0 auto !important;
     bottom: 0 !important;
-    background-color: green !important;
+    background-color: rgb(237, 238, 237) !important;
     /* padding: 0px 16px 80px; */
 }
 .sheet-home [data-rsbs-backdrop]{
     background-color: wheat !important;
     z-index: -10 !important;
     display: none !important;
+}
+
+.hide-corousel-home .react-multiple-carousel__arrow--left{
+    display: none;
+}
+.hide-corousel-home .react-multiple-carousel__arrow--right{
+    display: none;
 }

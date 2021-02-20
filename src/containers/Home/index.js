@@ -1,13 +1,39 @@
+import React , {Component} from 'react';
 import BottomSheetsHome from './BottomSheetsHome';
 import BgHome from './BgHome';
 import { PlaceHolderLoading} from '../../components'
- const Home = () => {
+import * as dataSheetsAction from '../../config/redux/action';
+import {connect} from 'react-redux';
 
-  return (
-    <>
-      <BgHome/>
-      <BottomSheetsHome/>
-    </>
-  )
+class Home extends Component{
+  constructor(props){
+    super(props);
+    props.getDataLandingPageUtama()
 }
-export default Home;
+  
+  render(){
+    const { placeHolderLoading } = this.props;
+   if(placeHolderLoading){
+     return(
+       <PlaceHolderLoading/>
+     )
+   }
+
+    return (
+      <>
+        <BottomSheetsHome/>
+      </>
+    )
+  }
+}
+const mapsStateToProps = (state) => {
+  return{
+      placeHolderLoading: state.placeHolderLoading
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return{
+      getDataLandingPageUtama: () => dispatch(dataSheetsAction.getDataLandingPageUtama()),
+  }
+}
+export default connect(mapsStateToProps , mapDispatchToProps) (Home);
