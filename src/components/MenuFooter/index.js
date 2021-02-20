@@ -27,7 +27,8 @@ export class MenuFooter extends Component {
             <div style={{display:'flex'}} className="navbar-custome">
                <Link style={{color: colorHome}} to="/"><i className="fas icon-custome fa-home fa-2x"></i><p class="text-menu-icon">HOME</p></Link>
                <Link style={{color: colorContak}} to="/kontak"><i class="far icon-custome fa-address-book fa-2x" ><p style={{fontSize: 10,marginTop: 5,marginLeft: -8}}>KONTAK</p></i></Link>
-               <Link style={{color: listApps}} to="/list-apps"><i class="far icon-custome fa-address-book fa-2x" ><p style={{fontSize: 10,marginTop: 5,marginLeft: -8}}>APPSSS</p></i></Link>
+               <Link style={{color: listApps}} to="/list-apps">
+               <i class="fas  icon-custome fa-toolbox fa-2x"><p style={{fontSize: 10,marginTop: 5,marginLeft: -8}}>APPSSS</p></i></Link>
             </div>
             </>
         )

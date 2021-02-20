@@ -4,6 +4,7 @@ import BgHome from './BgHome';
 import { PlaceHolderLoading} from '../../components'
 import * as dataSheetsAction from '../../config/redux/action';
 import {connect} from 'react-redux';
+import CardTop from './CardTop';
 
 class Home extends Component{
   constructor(props){

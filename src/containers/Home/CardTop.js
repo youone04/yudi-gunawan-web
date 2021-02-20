@@ -109,7 +109,7 @@ const CardTop = ({landingPageUtama}) => {
             <div class="container">
                 <div class="row justify-content-center">
                 <div style={{height:'40vh'}} class="col col-md-12 col-xl-12">
-                    <h3 class="h1">&ldquo;{header[0]}&rdquo;</h3>
+                    <h3 class="h1 mt-3">&ldquo;{header[0]}&rdquo;</h3>
                 </div>
                 </div>
             </div>
