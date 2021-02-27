@@ -2,7 +2,8 @@ let initisalState = {
     landingPageUtama  : {},
     dataNewApps: {},
     dataSeeAll: {},
-    placeHolderLoading: false
+    placeHolderLoading: false,
+    dataKontak : {}
 }
 
 export const dataSheets = (state = initisalState , action) => {
@@ -28,6 +29,12 @@ export const dataSheets = (state = initisalState , action) => {
                 ...state,
                 placeHolderLoading: action.value
             }
+        case 'GET_DATA_KONTAK': {
+            return{
+                ...state,
+                dataKontak: action.value
+            }
+        }
         default : return state;
     }
 }

@@ -1,32 +1,36 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-const ContentContact = () => {
+const ContentContact = ({dataKontak}) => {
     return(
         <section class="row no-gutters p-0 border-top border-bottom">
         <div class="col-lg-12">
             <section>
+                {
+                    console.log(dataKontak)
+                }
             <div class="container">
                 <div class="row justify-content-center">
                 <div class="col col-md-12 col-xl-12 text-center text-lg-left">
-                    <h3 class="display-3">Contact Us</h3>
+                    <h3 class="display-3">{dataKontak[0]}</h3>
                     <address class="lead mb-5">
-                    <p>443 Park Avenue South,</p>
-                    <p>Kips Bay</p>
-                    <p>New York City</p>
+                    <p>{dataKontak[1]}</p>
+                    <p>{dataKontak[2]}</p>
+                    <p>{dataKontak[3]}</p>
 
                     </address>
                     <div class="d-flex flex-column justify-content-center justify-content-lg-start">
                     <div class="mx-3 mx-lg-0 mr-lg-5 mb-4">
-                        <h5>Email us</h5>
-                        <a href="#" class="lead">hello@jumpstart.io</a>
+                        <h5>{dataKontak[4]}</h5>
+                        <a href="#" class="lead">{dataKontak[5]}</a>
                     </div>
                     <div class="mx-3 mx-lg-0 mr-lg-5 mb-4">
-                        <h5>Call any time</h5>
-                        <a href="#" class="lead">1800 488 328</a>
+                        <h5>{dataKontak[6]}</h5>
+                        <a href="#" class="lead">{dataKontak[7]}</a>
                     </div>
                     <div class="mx-3 mx-lg-0 mr-lg-5 mb-4">
-                        <h5>Get in touch</h5>
-                        <a href="#" class="lead">Leave a message</a>
+                        <h5>{dataKontak[8]}</h5>
+                        <a href="#" class="lead">{dataKontak[9]}</a>
                     </div>
                     </div>
                 </div>
@@ -73,4 +77,9 @@ const ContentContact = () => {
         </section>
     )
 }
-export default ContentContact;
+const mapsStateToProps = (state) => {
+    return{
+        dataKontak: state.dataKontak
+    }
+}
+export default connect(mapsStateToProps , null)(ContentContact);

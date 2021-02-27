@@ -52,3 +52,18 @@ export const getDataSeeAll = () => (dispatch) => {
         })
     })
 }
+
+export const getDataKontak = () => (dispatch) => {
+    dispatch({type: 'PLACE_HOLDER_LOADING' , value: true})
+    return new Promise((solve , reject) => {
+        axios.get(`https://sheets.googleapis.com/v4/spreadsheets/${process.env.REACT_APP_API_KEY_SHEET}/values/kontak!A1:Z100?key=${process.env.REACT_APP_API_KEY}`)
+        .then(res => {
+            dispatch({type: 'GET_DATA_KONTAK' , value: res.data.values});
+            dispatch({type: 'PLACE_HOLDER_LOADING' , value: false})
+            solve(res)
+        })
+        .catch(e => {
+            console.log(e)
+        })
+    })
+}
